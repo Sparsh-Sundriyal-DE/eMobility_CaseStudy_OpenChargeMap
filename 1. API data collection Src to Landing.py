@@ -20,7 +20,8 @@ storage_account_key = dbutils.secrets.get(scope=kv_scope, key=key_vault_secret_n
 # Configuration for Landing in ADLS Gen2
 storage_account = "de10692367dl"
 container_name = "sparsh"
-landing_data_path = f"abfss://{container_name}@{storage_account}.dfs.core.windows.net/openchargemap_case_study/Landing/" # Imp Landing layer container name is "Landing"
+# landing_data_path = f"abfss://{container_name}@{storage_account}.dfs.core.windows.net/openchargemap_case_study/Landing/" # Imp Landing layer container name is "Landing"
+landing_data_path = "/mnt/sparsh_2/openchargemap_case_study/Landing/"
 print(landing_data_path)
 
 # COMMAND ----------
@@ -66,7 +67,7 @@ headers = {
 params = {
     "output": "json",
     "countrycode": "US",
-    "maxresults": 1000000
+    "maxresults": 90000
 }
 
 # Make the GET request
@@ -94,10 +95,6 @@ if response.status_code == 200:
 else:
     print(f"Failed to retrieve data: {response.status_code}")
 
-
-# COMMAND ----------
-
-dbutils.fs.ls(landing_data_path)
 
 # COMMAND ----------
 

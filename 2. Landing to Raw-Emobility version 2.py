@@ -32,8 +32,8 @@ storage_account = "de10692367dl" # name of the ADLS gen 2 storage account
 container_name = "sparsh" # name of the container within ADLS gen 2 storage account
 
 # path of landing container present in ADLS
-source_data_path = f"abfss://{container_name}@{storage_account}.dfs.core.windows.net/openchargemap_case_study/Landing/"
-
+# source_data_path = f"abfss://{container_name}@{storage_account}.dfs.core.windows.net/openchargemap_case_study/Landing/"
+source_data_path = "/mnt/sparsh_2/openchargemap_case_study/Landing/"
 # path of raw emobility container present in ADLS 
 # sink_data_path = f"abfss://{container_name}@{storage_account}.dfs.core.windows.net/openchargemap_case_study/raw-emobility/"
 
